@@ -66,12 +66,12 @@ extern "C" {
     fn PLL_USB_IRQ();
     fn POWMAN_IRQ_POW();
     fn POWMAN_IRQ_TIMER();
-    fn SPAREIRQ_IRQ_0();
-    fn SPAREIRQ_IRQ_1();
-    fn SPAREIRQ_IRQ_2();
-    fn SPAREIRQ_IRQ_3();
-    fn SPAREIRQ_IRQ_4();
-    fn SPAREIRQ_IRQ_5();
+    fn SW0_IRQ();
+    fn SW1_IRQ();
+    fn SW2_IRQ();
+    fn SW3_IRQ();
+    fn SW4_IRQ();
+    fn SW5_IRQ();
 }
 #[doc(hidden)]
 #[repr(C)]
@@ -206,24 +206,12 @@ pub static __INTERRUPTS: [Vector; 52] = [
     Vector {
         _handler: POWMAN_IRQ_TIMER,
     },
-    Vector {
-        _handler: SPAREIRQ_IRQ_0,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_1,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_2,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_3,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_4,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_5,
-    },
+    Vector { _handler: SW0_IRQ },
+    Vector { _handler: SW1_IRQ },
+    Vector { _handler: SW2_IRQ },
+    Vector { _handler: SW3_IRQ },
+    Vector { _handler: SW4_IRQ },
+    Vector { _handler: SW5_IRQ },
 ];
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -318,17 +306,17 @@ pub enum Interrupt {
     #[doc = "45 - POWMAN_IRQ_TIMER"]
     POWMAN_IRQ_TIMER = 45,
     #[doc = "46 - Spare IRQ 0"]
-    SPAREIRQ_IRQ_0 = 46,
+    SW0_IRQ = 46,
     #[doc = "47 - Spare IRQ 1"]
-    SPAREIRQ_IRQ_1 = 47,
+    SW1_IRQ = 47,
     #[doc = "48 - Spare IRQ 2"]
-    SPAREIRQ_IRQ_2 = 48,
+    SW2_IRQ = 48,
     #[doc = "49 - Spare IRQ 3"]
-    SPAREIRQ_IRQ_3 = 49,
+    SW3_IRQ = 49,
     #[doc = "50 - Spare IRQ 4"]
-    SPAREIRQ_IRQ_4 = 50,
+    SW4_IRQ = 50,
     #[doc = "51 - Spare IRQ 5"]
-    SPAREIRQ_IRQ_5 = 51,
+    SW5_IRQ = 51,
 }
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]

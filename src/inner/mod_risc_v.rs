@@ -62,12 +62,12 @@ extern "C" {
     fn PLL_USB_IRQ();
     fn POWMAN_IRQ_POW();
     fn POWMAN_IRQ_TIMER();
-    fn SPAREIRQ_IRQ_0();
-    fn SPAREIRQ_IRQ_1();
-    fn SPAREIRQ_IRQ_2();
-    fn SPAREIRQ_IRQ_3();
-    fn SPAREIRQ_IRQ_4();
-    fn SPAREIRQ_IRQ_5();
+    fn SW0_IRQ();
+    fn SW1_IRQ();
+    fn SW2_IRQ();
+    fn SW3_IRQ();
+    fn SW4_IRQ();
+    fn SW5_IRQ();
 }
 #[doc(hidden)]
 #[repr(C)]
@@ -201,24 +201,12 @@ pub static __EXTERNAL_INTERRUPTS: [Vector; 52] = [
     Vector {
         _handler: POWMAN_IRQ_TIMER,
     },
-    Vector {
-        _handler: SPAREIRQ_IRQ_0,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_1,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_2,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_3,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_4,
-    },
-    Vector {
-        _handler: SPAREIRQ_IRQ_5,
-    },
+    Vector { _handler: SW0_IRQ },
+    Vector { _handler: SW1_IRQ },
+    Vector { _handler: SW2_IRQ },
+    Vector { _handler: SW3_IRQ },
+    Vector { _handler: SW4_IRQ },
+    Vector { _handler: SW5_IRQ },
 ];
 #[doc(hidden)]
 pub mod interrupt;
