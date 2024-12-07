@@ -419,25 +419,25 @@ USB_DPRAM:
         description: "TODO"
 
 _add:
-  SWP_IRQ:
+  SW_IRQ:
     description: Virtual Peripheral to access unused NVIC software interrupts
     baseAddress: 0
     interrupts:
-      spareirq_irq_0:
+      sw0_irq:
         description: "Spare IRQ 0"
         value: 46
-      spareirq_irq_1:
+      sw1_irq:
         description: "Spare IRQ 1"
         value: 47
-      spareirq_irq_2:
+      sw2_irq:
         description: "Spare IRQ 2"
         value: 48
-      spareirq_irq_3:
+      sw3_irq:
         description: "Spare IRQ 3"
         value: 49
-      spareirq_irq_4:
+      sw4_irq:
         description: "Spare IRQ 4"
         value: 50
-      spareirq_irq_5:
+      sw5_irq:
         description: "Spare IRQ 5"
         value: 51
