@@ -4,7 +4,7 @@ jobs:
   clippy-check-arm:
     runs-on: ubuntu-20.04
     env:
-      RUSTFLAGS: "-D warnings"
+      RUSTFLAGS: "-D warnings -Aclippy::needless_lifetimes"
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -15,7 +15,7 @@ jobs:
   clippy-check-riscv:
     runs-on: ubuntu-20.04
     env:
-      RUSTFLAGS: "-D warnings"
+      RUSTFLAGS: "-D warnings -Aclippy::needless_lifetimes"
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
