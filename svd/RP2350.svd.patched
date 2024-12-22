@@ -64616,5 +64616,40 @@
         </register>
       </registers>
     </peripheral>
+    <peripheral>
+      <name>SW_IRQ</name>
+      <description>Virtual Peripheral to access unused NVIC software interrupts</description>
+      <baseAddress>0x00000000</baseAddress>
+      <interrupt>
+        <name>sw0_irq</name>
+        <description>Spare IRQ 0</description>
+        <value>46</value>
+      </interrupt>
+      <interrupt>
+        <name>sw1_irq</name>
+        <description>Spare IRQ 1</description>
+        <value>47</value>
+      </interrupt>
+      <interrupt>
+        <name>sw2_irq</name>
+        <description>Spare IRQ 2</description>
+        <value>48</value>
+      </interrupt>
+      <interrupt>
+        <name>sw3_irq</name>
+        <description>Spare IRQ 3</description>
+        <value>49</value>
+      </interrupt>
+      <interrupt>
+        <name>sw4_irq</name>
+        <description>Spare IRQ 4</description>
+        <value>50</value>
+      </interrupt>
+      <interrupt>
+        <name>sw5_irq</name>
+        <description>Spare IRQ 5</description>
+        <value>51</value>
+      </interrupt>
+    </peripheral>
   </peripherals>
 </device>

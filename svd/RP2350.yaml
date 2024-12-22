@@ -417,3 +417,27 @@ USB_DPRAM:
         _start_from_zero: true
         name: "EP_CONTROL%s"
         description: "TODO"
+
+_add:
+  SW_IRQ:
+    description: Virtual Peripheral to access unused NVIC software interrupts
+    baseAddress: 0
+    interrupts:
+      sw0_irq:
+        description: "Spare IRQ 0"
+        value: 46
+      sw1_irq:
+        description: "Spare IRQ 1"
+        value: 47
+      sw2_irq:
+        description: "Spare IRQ 2"
+        value: 48
+      sw3_irq:
+        description: "Spare IRQ 3"
+        value: 49
+      sw4_irq:
+        description: "Spare IRQ 4"
+        value: 50
+      sw5_irq:
+        description: "Spare IRQ 5"
+        value: 51
