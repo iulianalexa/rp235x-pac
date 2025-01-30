@@ -33,6 +33,7 @@ rustfmt inner/lib.rs
 mv inner/lib.rs inner/mod_cortex_m.rs
 rm -rf ${SCRIPT_DIR}/src/inner
 mv inner ${SCRIPT_DIR}/src
+mv device.x ${SCRIPT_DIR}
 popd
 rm -rf ${tmp_dir}
 
