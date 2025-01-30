@@ -35,7 +35,9 @@ for ((i = 0; i < ${#alphaTargets[@]}; i++)); do
   # Calculate the tail number needed to crop to blockEnd
   blockTail=$((maxLen-blockEnd))
 
-  # This will replace the parts that need to be sorted.
+  # This will replace the parts that need to be sorted. Ensure that sort ordering is 
+  # consistent irrespective of the user's locale by using the "C" locale.
+  export LC_ALL=C
   toReplace=$(cat ${FILE} | grep "${alphaTargets[$i]}" -A $blockEndLine | tail -n $blockEndLine)
   if [ "$(uname)" == "Darwin" ]; then
     alphabetized=$(echo "$toReplace" | sed '$!N;s/\n/ /' | sort | sed 's/     /\n    /')
