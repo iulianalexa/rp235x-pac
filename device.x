@@ -42,4 +42,10 @@ PROVIDE(PLL_SYS_IRQ = DefaultHandler);
 PROVIDE(PLL_USB_IRQ = DefaultHandler);
 PROVIDE(POWMAN_IRQ_POW = DefaultHandler);
 PROVIDE(POWMAN_IRQ_TIMER = DefaultHandler);
+PROVIDE(SW0_IRQ = DefaultHandler);
+PROVIDE(SW1_IRQ = DefaultHandler);
+PROVIDE(SW2_IRQ = DefaultHandler);
+PROVIDE(SW3_IRQ = DefaultHandler);
+PROVIDE(SW4_IRQ = DefaultHandler);
+PROVIDE(SW5_IRQ = DefaultHandler);
 
