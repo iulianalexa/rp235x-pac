@@ -70,6 +70,8 @@ pub type SUSPENDED_R = crate::BitReader;
 pub type SUSPENDED_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `SPEED` reader - Host: device speed. Disconnected = 00, LS = 01, FS = 10"]
 pub type SPEED_R = crate::FieldReader;
+#[doc = "Field `SPEED` writer - Host: device speed. Disconnected = 00, LS = 01, FS = 10"]
+pub type SPEED_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `VBUS_OVER_CURR` reader - VBUS over current detected"]
 pub type VBUS_OVER_CURR_R = crate::BitReader;
 #[doc = "Field `RESUME` reader - Host: Device has initiated a remote resume. Device: host has initiated a resume."]
@@ -238,6 +240,12 @@ impl W {
     #[must_use]
     pub fn suspended(&mut self) -> SUSPENDED_W<SIE_STATUS_SPEC> {
         SUSPENDED_W::new(self, 4)
+    }
+    #[doc = "Bits 8:9 - Host: device speed. Disconnected = 00, LS = 01, FS = 10"]
+    #[inline(always)]
+    #[must_use]
+    pub fn speed(&mut self) -> SPEED_W<SIE_STATUS_SPEC> {
+        SPEED_W::new(self, 8)
     }
     #[doc = "Bit 11 - Host: Device has initiated a remote resume. Device: host has initiated a resume."]
     #[inline(always)]

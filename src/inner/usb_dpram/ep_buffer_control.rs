@@ -288,7 +288,7 @@ impl W {
         FULL_1_W::new(self, 31)
     }
 }
-#[doc = "TODO  
+#[doc = "-  
 
 You can [`read`](crate::Reg::read) this register and get [`ep_buffer_control::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ep_buffer_control::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct EP_BUFFER_CONTROL_SPEC;
