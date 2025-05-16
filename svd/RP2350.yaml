@@ -373,7 +373,11 @@ USB:
       J: [1, "J"]
       K: [2, "K"]
       SE1: [3, "SE1"]
-
+      
+    _modify:
+      SPEED:
+        access: "read-write"
+      
   # The ADDR_ENDP* registers collected into the array HOST_ADDR_ENDP.
   # This renaming is necessary to avoid collision with the "ADDR_ENDP" register used in device mode.
   _array:
@@ -411,12 +415,25 @@ USB_DPRAM:
   _array:
     "EP*_IN_BUFFER_CONTROL,EP*_OUT_BUFFER_CONTROL":
         _start_from_zero: true
+        description: _original
         name: "EP_BUFFER_CONTROL%s"
-        description: "TODO"
     "EP*_IN_CONTROL,EP*_OUT_CONTROL":
         _start_from_zero: true
+        description: _original
         name: "EP_CONTROL%s"
-        description: "TODO"
+
+  _copy:
+    EPX_CONTROL:
+      _from: "EP1_IN_CONTROL"
+      addressOffset: 0x100
+      description: "EPx Control (Host-mode only!)"
+
+  "EP*_IN_CONTROL,EP*_OUT_CONTROL":
+    _add:
+      HOST_POLL_INTERVAL:
+        description: "The interval the host controller should poll this endpoint. Only applicable for interrupt endpoints. Specified in ms - 1. For example: a value of 9 would poll the endpoint every 10ms."
+        bitOffset: 16
+        bitWidth: 10
 
 _add:
   SW_IRQ:

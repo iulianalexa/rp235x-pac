@@ -41717,7 +41717,7 @@
               <name>SPEED</name>
               <description>Host: device speed. Disconnected = 00, LS = 01, FS = 10</description>
               <bitRange>[9:8]</bitRange>
-              <access>read-only</access>
+              <access>read-write</access>
             </field>
             <field>
               <name>SUSPENDED</name>
@@ -64435,7 +64435,7 @@
           <dimIncrement>0x4</dimIncrement>
           <dimIndex>0-29</dimIndex>
           <name>EP_CONTROL%s</name>
-          <description>TODO</description>
+          <description>-</description>
           <addressOffset>0x8</addressOffset>
           <resetValue>0x00000000</resetValue>
           <fields>
@@ -64504,6 +64504,12 @@
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
+            <field>
+              <name>HOST_POLL_INTERVAL</name>
+              <description>The interval the host controller should poll this endpoint. Only applicable for interrupt endpoints. Specified in ms - 1. For example: a value of 9 would poll the endpoint every 10ms.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
           </fields>
         </register>
         <register>
@@ -64511,7 +64517,7 @@
           <dimIncrement>0x4</dimIncrement>
           <dimIndex>0-31</dimIndex>
           <name>EP_BUFFER_CONTROL%s</name>
-          <description>TODO</description>
+          <description>-</description>
           <addressOffset>0x80</addressOffset>
           <resetValue>0x00000000</resetValue>
           <fields>
@@ -64610,6 +64616,79 @@
               <name>LENGTH_0</name>
               <description>The length of the data in buffer 1.</description>
               <bitRange>[9:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>EPX_CONTROL</name>
+          <description>EPx Control (Host-mode only!)</description>
+          <addressOffset>0x100</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ENABLE</name>
+              <description>Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.</description>
+              <bitRange>[31:31]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DOUBLE_BUFFERED</name>
+              <description>This endpoint is double buffered.</description>
+              <bitRange>[30:30]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>INTERRUPT_PER_BUFF</name>
+              <description>Trigger an interrupt each time a buffer is done.</description>
+              <bitRange>[29:29]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>INTERRUPT_PER_DOUBLE_BUFF</name>
+              <description>Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.</description>
+              <bitRange>[28:28]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ENDPOINT_TYPE</name>
+              <bitRange>[27:26]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>Control</name>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Isochronous</name>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Bulk</name>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Interrupt</name>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>INTERRUPT_ON_STALL</name>
+              <description>Trigger an interrupt if a STALL is sent. Intended for debug only.</description>
+              <bitRange>[17:17]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>INTERRUPT_ON_NAK</name>
+              <description>Trigger an interrupt if a NAK is sent. Intended for debug only.</description>
+              <bitRange>[16:16]</bitRange>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>BUFFER_ADDRESS</name>
+              <description>64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.</description>
+              <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
